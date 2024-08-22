@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
  
 const UpdateCoffee = () => {
     const lodded=useLoaderData();
-    const { name, chef, supplier, taste, category, details, photo } = lodded;
+    const { _id, name, chef, supplier, taste, category, details, photo } = lodded;
     const UpdatehandleCoffee=event=>{
         event.preventDefault();
         const form=event.target;
@@ -19,12 +19,12 @@ const UpdateCoffee = () => {
         const UpdateCoffee={name,chef,supplier,taste,category,details,photo}
         console.log(UpdateCoffee);
 
-        fetch(`http://localhost:5000/coffee/${event}`,{
+        fetch(`http://localhost:5000/coffee/${_id}`,{
             method:"PUT",
             headers:{
                 'content-type':"application/json"
             },
-            body:JSON.stringify(UpdateCoffee)
+            body:JSON.stringify(UpdateCoffee)   
         })
         .then(res=>res.json())
         .then(data=>{
