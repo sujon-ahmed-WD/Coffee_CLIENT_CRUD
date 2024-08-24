@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "./App.css";
 import CoffeeCard from "./Component/CoffeeCard";
 import { useState } from "react";
@@ -11,6 +11,9 @@ function App() {
     <>
   <div className="ml-20  ">
         <h1 className="text-6xl text-purple-600 text-center">Vite + React</h1>
+        <Link to='/signup'>
+        <button className="btn btn-outline btn-secondary">SignUp</button>
+        </Link>
   
         <h1 className=" mb-3 text-6xl text-green-500 text-center">Total Order:{user.length}</h1>
   

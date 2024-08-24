@@ -29,16 +29,16 @@ const UpdateCoffee = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
-            if(data.insertedId){
+            if(data.modifiedCount>0){
                 Swal.fire({
                     title: 'success!',
                     text: 'COFFEE UPDATED Successfully',
                     icon: 'success',
                     confirmButtonText: 'Done'
                   })
-                  form.reset()
-            }
-        })
+                }
+              })
+              form.reset()
     }
     return (
         <div className="bg-[#F4F3F0] p-5">
