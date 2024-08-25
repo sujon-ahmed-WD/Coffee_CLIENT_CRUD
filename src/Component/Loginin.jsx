@@ -1,10 +1,94 @@
- 
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 const Loginin = () => {
-    return (
-        <div>
-            <h1>This is a Login Page</h1>
+    const {signInUser}=useContext(AuthContext)
+    const loginhandle=e=>{
+        e.preventDefault();
+        const form=e.target;
+        const email=form.email.value;
+        const password=form.password.value;
+        const user={email,password}
+        console.log(user);
+
+        signInUser(email,password)
+        .then(result=>{
+            console.log(result.user);
+            //  const user={
+            //     email,
+            //     lastLoggedAt:result.user?.metadata?.lastSignTime
+            //  }
+
+            //  updadate data in Updadate
+
+            // fetch('http://localhost:5173/user',{
+            //     method:'PATCH',
+            //     headers:{
+            //         'content-type':'application/json'
+            //     },
+            //     body:JSON.stringify(user)
+            // })
+            // .then(res=>res.json())
+            // .then(data=>{
+            //     console.log(data);
+            // })
+            
+        })
+        .catch(error=>{
+            console.error(error)
+        })
+
+    }
+  return (
+    <div>
+      <div className="hero bg-base-200 min-h-screen">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold">Login now!</h1>
+ 
+          </div>
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+            <form
+            onSubmit={loginhandle}
+             className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="email"
+                  className="input input-bordered"
+                   
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                  
+                />
+                <label className="label">
+                  <a href="#" className="label-text-alt link link-hover">
+                    Forgot password?
+                  </a>
+                </label>
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Loginin;

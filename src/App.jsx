@@ -12,10 +12,17 @@ function App() {
   <div className="ml-20  ">
         <h1 className="text-6xl text-purple-600 text-center">Vite + React</h1>
         <Link to='/signup'>
+        
         <button className="btn btn-outline btn-secondary">SignUp</button>
         </Link>
-  
-        <h1 className=" mb-3 text-6xl text-green-500 text-center">Total Order:{user.length}</h1>
+        <Link to='/login'>
+        
+        <button className="btn btn-outline btn-secondary">Login</button>
+        </Link>
+
+
+      <Link to='/user'><button className="btn btn-outline btn-primary">User Login data</button></Link>
+ 
   
      <div className="grid grid-cols-2 gap-8 ">
           {user.map((use) => (
